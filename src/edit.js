@@ -1,7 +1,7 @@
 import * as ls from './local-storage.js';
 
 const updateEdit = (inputDiv, label) => {
-  const id = inputDiv.classList[2];
+  const id = inputDiv.classList[1];
   const items = ls.getListData(ls.saveDataLocation);
   const item = items.find((item) => item.index === Number(id));
   item.description = label.textContent;
@@ -32,6 +32,9 @@ const endEdit = (inputDiv) => {
   const input = inputDiv.querySelector('#editing');
   const label = document.createElement('label');
   label.textContent = input.value;
+  label.addEventListener('dblclick', () => {
+    editStart(inputDiv);
+  })
   inputDiv.removeChild(input);
   inputDiv.appendChild(label);
 
@@ -43,17 +46,17 @@ const toggleIcons = (inputDiv) => {
   const initIcon = listItem.querySelector('span');
   const altIcon = listItem.querySelector('.altSpan');
 
-  const listenerEnd = () => {
+  const endEditListener = () => {
     endEdit(inputDiv);
     toggleIcons(inputDiv);
-    altIcon.removeEventListener('click', listenerEnd);
+    altIcon.removeEventListener('click', endEditListener);
   };
-  altIcon.removeEventListener('click', listenerEnd);
+  altIcon.removeEventListener('click', endEditListener);
 
   if (initIcon.style.display !== 'none') {
     initIcon.style.display = 'none';
     altIcon.style.display = 'initial';
-    altIcon.addEventListener('click', listenerEnd);
+    altIcon.addEventListener('click', endEditListener);
   } else {
     initIcon.style.display = 'initial';
     altIcon.style.display = 'none';

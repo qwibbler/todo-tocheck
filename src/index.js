@@ -19,8 +19,8 @@ function add() {
   refresh();
 }
 
-function removeAll() {
-  items = addRemove.removeAll(items);
+function removeAllCompleted() {
+  items = addRemove.removeAllCompleted(items);
   refresh();
 }
 
@@ -34,4 +34,4 @@ addIt.addEventListener('keypress', (e) => {
   }
 });
 
-removeIt.addEventListener('click', removeAll);
+removeIt.addEventListener('click', removeAllCompleted);
