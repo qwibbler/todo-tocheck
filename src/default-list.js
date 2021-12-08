@@ -56,16 +56,17 @@ function dropdownListener(span, spanDiv, id, items) {
     }
     window.removeEventListener('click', spanDel);
   }
-  span.addEventListener('click', (e) => {
+  
+  function spanMake(e) {
     if (trackDropmenu === 0) {
       e.stopPropagation();
       createMenu(spanDiv, id, items);
       trackDropmenu += 1;
-    }
-    if (trackDropmenu === 1) {
       window.addEventListener('click', spanDel);
     }
-  });
+  }
+  
+  span.addEventListener('click', spanMake);
 }
 
 export const documentToDo = (list) => {
