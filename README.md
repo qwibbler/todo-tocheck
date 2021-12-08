@@ -2,7 +2,7 @@
 
 # To Do List
 
-> A list of all the things you have yet to do.
+> Create your own personal list of all the things you have yet to do.
 
 ![screenshot](./Screenshot.png)
 
