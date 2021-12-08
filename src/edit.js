@@ -31,7 +31,13 @@ const editDesc = (inputDiv) => {
 const endEdit = (inputDiv) => {
   const input = inputDiv.querySelector('#editing');
   const label = document.createElement('label');
+  const index = inputDiv.classList[1];
+  const check = document.getElementById(`${index}`);
+  console.log(check, check.checked);
   label.textContent = input.value;
+  label.htmlFor = index;
+  label.classList.add(`${check.checked}`)
+  console.log(label.classList);
   label.addEventListener('dblclick', () => {
     editStart(inputDiv);
   })

@@ -33,10 +33,9 @@ function defaultList(item, id, items) {
   label.htmlFor = item.index;
   label.textContent = item.description;
 
-  list.id = `${id}li`;
+  // list.id = `${id}li`;
 
   span.innerHTML = '&#8942;';
-  span.classList.add('icon', 'options-icon');
 
   altSpan.style.display = 'none';
   altSpan.className = 'altSpan';
