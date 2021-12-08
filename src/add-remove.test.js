@@ -1,5 +1,21 @@
+jest.mock('./add-remove')
 import * as addRemove from './add-remove.js'
 
-test('First Test', () => {
-  expect(1).toBe(1);
-})
+const itemsEmpty = [];
+const items2 = [{
+  description: 'xyzzy',
+  complete: false,
+  index: 0,
+},
+{ 
+  description: 'abcde',
+  complete: true,
+  index: 1,
+}]
+
+describe('Add...', () => {
+  test('Abc to empty items', () => {
+    addRemove.addItem('Abc', itemsEmpty)
+    expect(itemsEmpty.length).toBe(1);
+  })
+});
