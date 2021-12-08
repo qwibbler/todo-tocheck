@@ -1,9 +1,10 @@
-export const addItem = (inputValue, items) => {
+export const addItem = (input, items) => {
   items.push({
-    description: inputValue,
+    description: input.value,
     complete: false,
     index: items.length,
   });
-  inputValue = '';
+  input.value = '';
+  // ls.saveListData(items, ls.saveDataLocation);
   return items;
 };

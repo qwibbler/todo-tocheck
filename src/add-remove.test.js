@@ -1,6 +1,8 @@
-jest.mock('./add-remove')
+// jest.mock('./add-remove')
 import * as addRemove from './add-remove.js'
+import * as ls from './local-storage.js';
 
+const input = {value: 'Abc'}
 const itemsEmpty = [];
 const items2 = [{
   description: 'xyzzy',
@@ -15,7 +17,7 @@ const items2 = [{
 
 describe('Add...', () => {
   test('Abc to empty items', () => {
-    addRemove.addItem('Abc', itemsEmpty)
+    addRemove.addItem(input, itemsEmpty)
     expect(itemsEmpty.length).toBe(1);
   })
 });
