@@ -4,7 +4,7 @@
   "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "watch": "webpack --watch --progress",
     "start": "webpack serve --open",
     "server": "node server.js",
@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/qwibbler/todo-list#readme",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.16.0",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.5.1",
     "eslint": "^7.32.0",
@@ -43,5 +42,11 @@
   "dependencies": {
     "uuid": "^8.3.2"
   },
-  "main": "webpack.config.js"
+  "main": "webpack.config.js",
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  }
 }
