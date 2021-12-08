@@ -4,7 +4,7 @@ import editStart from './edit.js';
 
 let trackDropmenu = 0;
 
-function defaultList(item, id, items) {
+function defaultList(item) {
   const frag = document.createDocumentFragment();
   const list = document.createElement('li');
   const div = document.createElement('div');
@@ -33,8 +33,6 @@ function defaultList(item, id, items) {
   label.htmlFor = item.index;
   label.textContent = item.description;
 
-  // list.id = `${id}li`;
-
   span.innerHTML = '&#8942;';
 
   altSpan.style.display = 'none';
@@ -55,7 +53,7 @@ function dropdownListener(span, spanDiv, id, items) {
     }
     window.removeEventListener('click', spanDel);
   }
-  
+
   function spanMake(e) {
     if (trackDropmenu === 0) {
       e.stopPropagation();
@@ -64,11 +62,11 @@ function dropdownListener(span, spanDiv, id, items) {
       window.addEventListener('click', spanDel);
     }
   }
-  
+
   span.addEventListener('click', spanMake);
 }
 
-export const documentToDo = (list) => {
+const documentToDo = (list) => {
   if (list) {
     const wrapper = document.querySelector('.items');
     wrapper.innerHTML = '';
@@ -76,15 +74,17 @@ export const documentToDo = (list) => {
       const todoItem = list.filter((item) => item.index === i)[0];
       const completeList = defaultList(todoItem, i, list);
 
-      dropdownListener(completeList.span, completeList.spanDiv, i, list)
+      dropdownListener(completeList.span, completeList.spanDiv, i, list);
       completeList.check.addEventListener('click', () => {
         toggleComplete(todoItem, list);
       });
       completeList.label.addEventListener('dblclick', () => {
-        editStart(completeList.div)
-      })
+        editStart(completeList.div);
+      });
 
       wrapper.appendChild(completeList.frag);
     }
   }
 };
+
+export default documentToDo;

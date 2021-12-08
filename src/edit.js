@@ -36,10 +36,7 @@ const endEdit = (inputDiv) => {
 
   label.textContent = input.value;
   label.htmlFor = index;
-  label.classList.add(`${check.checked}`)
-  label.addEventListener('dblclick', () => {
-    editStart(inputDiv);
-  })
+  label.classList.add(`${check.checked}`);
 
   inputDiv.removeChild(input);
   inputDiv.appendChild(label);
