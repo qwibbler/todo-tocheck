@@ -1,6 +1,6 @@
-// jest.mock('./add-remove')
+jest.mock('./add-remove')
 import * as addRemove from './add-remove.js'
-import * as ls from './local-storage.js';
+// import * as ls from './local-storage.js';
 
 const input = {value: 'Abc'}
 const itemsEmpty = [];
