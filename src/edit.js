@@ -28,7 +28,7 @@ const editDesc = (inputDiv) => {
   });
 };
 
-const endEdit = (inputDiv) => {
+export const endEdit = (inputDiv) => {
   const input = inputDiv.querySelector('#editing');
   const label = document.createElement('label');
   const index = inputDiv.classList[1];
@@ -44,7 +44,7 @@ const endEdit = (inputDiv) => {
   updateEdit(inputDiv, label);
 };
 
-const toggleIcons = (inputDiv) => {
+export const toggleIcons = (inputDiv) => {
   const listItem = inputDiv.parentElement;
   const initIcon = listItem.querySelector('span');
   const altIcon = listItem.querySelector('.altSpan');
