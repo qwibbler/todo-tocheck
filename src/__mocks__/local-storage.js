@@ -1,16 +1,10 @@
 export const saveDataLocation = 'myLocalToDo';
 
-let localStorage = []
+const localStorage = { myLocalToDo: [] };
 
 export const saveListData = (data, location) => {
-  // localStorage.setItem(location, JSON.stringify(data));
-  return data;
+  localStorage[location] = data;
+  return localStorage[location];
 };
 
-export const getListData = (location) => {
-  if (localStorage.length > 0) {
-    // const data = JSON.parse(localStorage.getItem(location));
-    return localStorage;
-  }
-  return [];
-};
+export const getListData = (location) => localStorage[location];
