@@ -4,8 +4,6 @@ import documentToDo from './default-list.js';
 jest.mock('./local-storage');
 jest.mock('./default-list');
 
-// const input = { value: 'Abc' }
-// const itemsEmpty = [];
 const itemsFull = [{
   description: 'xyzzy',
   complete: false,
