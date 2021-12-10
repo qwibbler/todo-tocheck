@@ -21,7 +21,7 @@ const documentToDo = (list) => {
       spanDiv.appendChild(altSpan);
 
       div.classList.add('input', `${item.index}`);
-          
+
       check.type = 'checkbox';
       check.name = item.index;
       check.id = item.index;
