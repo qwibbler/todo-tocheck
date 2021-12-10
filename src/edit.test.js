@@ -1,4 +1,5 @@
 import editStart, { endEdit, toggleIcons } from './edit.js'
+import toggleComplete from './complete.js'
 import documentToDo from './default-list.js';
 import * as ls from "./local-storage.js";
 
